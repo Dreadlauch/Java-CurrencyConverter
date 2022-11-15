@@ -9,8 +9,9 @@ public class Main{
 		int fromCurr=1;
 		int toCurr=1;
 		
-		System.out.println("Welcome to the currency converter!");
-		System.out.println("");
+		System.out.println("_____________________________________________________");
+		System.out.println("        Welcome to the currency converter!");
+		System.out.println("_____________________________________________________");
 		System.out.println("Please select the currency you want to convert from.");
 		System.out.println("Enter 1 for " + curr[0] + ", 2 for " + curr[1] + ", 3 for " + curr[2] + ", 4 for " + curr[3] + " or 5 for " + curr[4]);
 		fromCurr = scanner.nextInt();
@@ -42,14 +43,14 @@ public class Main{
 	
 	static void typecheck(int fromCurr, int toCurr, double amount1){
 		
-		if (fromCurr > 5){
+		if (fromCurr > 5 || fromCurr <= 0){
 			System.out.println(fromCurr + " is not a valid selection! Please try again.");
 			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 			System.out.println("");
 			Main.main(null);
 		}
 		
-		if (toCurr > 5){
+		if (toCurr > 5 || toCurr <= 0){
 			System.out.println(toCurr + " is not a valid selection! Please try again.");
 			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 			System.out.println("");
@@ -68,3 +69,4 @@ public class Main{
 		}
 	}
 }
+
