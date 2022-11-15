@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		String[] curr = {"EUR", "USD", "JPY", "GBP", "CHF"};
+		double[] factor = {1, 1.0396, 144.9815, 0.8786, 0.9777};
+		double amount1=1;
+		int fromCurr=1;
+		int toCurr=1;
+		
+		System.out.println("Welcome to the currency converter!");
+		System.out.println("");
+		System.out.println("Please select the currency you want to convert from.");
+		System.out.println("Enter 1 for " + curr[0] + ", 2 for " + curr[1] + ", 3 for " + curr[2] + ", 4 for " + curr[3] + " or 5 for " + curr[4]);
+		fromCurr = scanner.nextInt();
+		System.out.println("");
+		
+		typecheck(fromCurr, toCurr, amount1);
+		
+		System.out.println("Please enter a value that'll be converted: ");
+		amount1 = scanner.nextDouble();
+		System.out.println("");
+		
+		typecheck(fromCurr, toCurr, amount1);
+		
+		System.out.println("Now select a currency you want to convert to.");
+		System.out.println("Enter 1 for " + curr[0] + ", 2 for " + curr[1] + ", 3 for " + curr[2] + ", 4 for " + curr[3] + " or 5 for " + curr[4]);
+		toCurr = scanner.nextInt();
+		System.out.println("");
+		
+		typecheck(fromCurr, toCurr, amount1);
+		
+		converter(amount1, fromCurr, toCurr, curr, factor);
+	}
+	
+	static void converter(double amount1, int fromCurr, int toCurr, String[] curr, double[] factor) {
+		double amount2 = (amount1* (1/factor[fromCurr - 1])) * factor[toCurr - 1];
+		
+		System.out.println(amount1 + " " + curr[fromCurr - 1] + " equals " + amount2 + " " + curr[toCurr - 1]);
+	}
+	
+	static void typecheck(int fromCurr, int toCurr, double amount1){
+		
+		if (fromCurr > 5){
+			System.out.println(fromCurr + " is not a valid selection! Please try again.");
+			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+			System.out.println("");
+			Main.main(null);
+		}
+		
+		if (toCurr > 5){
+			System.out.println(toCurr + " is not a valid selection! Please try again.");
+			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+			System.out.println("");
+			Main.main(null);
+		}
+		
+		if (amount1 <= 0){
+			System.out.println(amount1 + " is not a valid value! Please try again.");
+			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+			System.out.println("");
+			Main.main(null);
+		}
+		
+		else{
+			return;
+		}
+	}
+}
