@@ -37,12 +37,13 @@ public class Main{
 	
 	static void converter(double amount1, int fromCurr, int toCurr, String[] curr, double[] factor) {
 		double amount2 = (amount1* (1/factor[fromCurr - 1])) * factor[toCurr - 1];
+		//formula to calculate to the wanted currency; It doesn't matter with which currency we start, we first convert it to EUR ("factor = 1"), from there we multiply it with the actual factor
 		
 		System.out.println(amount1 + " " + curr[fromCurr - 1] + " equals " + amount2 + " " + curr[toCurr - 1]);
 	}
 	
 	static void typecheck(int fromCurr, int toCurr, double amount1){
-		
+		//Foolproof-Check for invalid inputs
 		if (fromCurr > 5 || fromCurr <= 0){
 			System.out.println(fromCurr + " is not a valid selection! Please try again.");
 			System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
